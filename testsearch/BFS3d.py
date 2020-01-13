@@ -1,3 +1,11 @@
+########################################
+# Breadth first search algorithm
+# 
+# Does not work with netlist yet.
+########################################
+
+
+
 class Vertex():
     def __init__(self, name):
         self.name = name
