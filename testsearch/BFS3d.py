@@ -158,13 +158,28 @@ for net in netlist:
         for j in grid2:
             if abs(j[0] - i[0]) == 1 and j[1] - i[1] == 0 and j[2] - i[2] ==0:    
                 if (j,i) not in edges:
+                    # if str(i) not in blocked and str(j) not in blocked:
+                    #     edges.append((i,j))
                     edges.append((i,j))
             elif abs(j[1] - i[1]) == 1 and j[0] - i[0] == 0 and j[2] - i[2] == 0:
                 if (j,i) not in edges:
+                    # if str(i) not in blocked and str(j) not in blocked:
+                    #     edges.append((i,j))
                     edges.append((i,j))
             elif abs(j[2] - i[2]) == 1 and j[0] - i[0] == 0 and j[1] - i[1] == 0:
                 if (j,i) not in edges:
+                    # if str(i) not in blocked and str(j) not in blocked:
+                    #     edges.append((i,j))
                     edges.append((i,j))
+    
+    # for i in range(len(edges)):
+    #     if (0, 3, 0) == edges[i][0] or (0, 3, 0) == edges[i][1]:
+    #         edges.pop(i)
+        # print(edges[i])
+    
+    for i in edges:
+        if (3, 1, 0) in i:
+            edges.remove(i)
 
     
     for i in edges:
@@ -175,10 +190,12 @@ for net in netlist:
 
 
     g.bfs(a)
-    # g.print_graph() 
+     
 
     end = str(gate_coordinates[int(net[1]) - 1])
     # end = "(" + end.strip("[]") + ")"
     print(g.path(end))     
 
-    
+# g.print_graph()
+# print(edges)
+print(len(edges))
